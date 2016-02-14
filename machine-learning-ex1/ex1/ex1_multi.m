@@ -1,12 +1,6 @@
 %% Machine Learning Online Class
 %  Exercise 1: Linear regression with multiple variables
 %
-%  Instructions
-%  ------------
-% 
-%  This file contains code that helps you get started on the
-%  linear regression exercise. 
-%
 %  You will need to complete the following functions in this 
 %  exericse:
 %
@@ -18,11 +12,6 @@
 %     computeCostMulti.m
 %     featureNormalize.m
 %     normalEqn.m
-%
-%  For this part of the exercise, you will need to change some
-%  parts of the code below for various experiments (e.g., changing
-%  learning rates).
-%
 
 %% Initialization
 
@@ -49,7 +38,7 @@ pause;
 % Scale features and set them to zero mean
 fprintf('Normalizing Features ...\n');
 
-[X mu sigma] = featureNormalize(X);
+[X, mu, sigma] = featureNormalize(X);
 
 % Add intercept term to X
 X = [ones(m, 1) X];
