@@ -7,27 +7,19 @@ function [X_norm, mu, sigma] = featureNormalize(X)
 
 % You need to set these values correctly
 X_norm = X;
-mu = zeros(1, size(X, 2));
-sigma = zeros(1, size(X, 2));
+mu = mean(X_norm); 
+sigma = std(X_norm);
 
-mu = mean(X_norm) 
-sigma = std(X_norm)
-
-% ====================== YOUR CODE HERE ======================
-% Instructions: First, for each feature dimension, compute the mean
-%               of the feature and subtract it from the dataset,
-%               storing the mean value in mu. Next, compute the 
-%               standard deviation of each feature and divide
-%               each feature by it's standard deviation, storing
-%               the standard deviation in sigma. 
+for j = 1 : size(X_norm,2)
+    X_norm(:,j) = (X_norm(:,j) - mu(j)) / sigma(j);
+end
+% First, for each feature dimension, compute the mean
+% of the feature and subtract it from the dataset,
+% storing the mean value in mu. Next, compute the 
+% standard deviation of each feature and divide
+% each feature by it's standard deviation, storing
+% the standard deviation in sigma. 
 %
-%               Note that X is a matrix where each column is a 
-%               feature and each row is an example. You need 
-%               to perform the normalization separately for 
-%               each feature. 
-%
-% Hint: You might find the 'mean' and 'std' functions useful.
-%       
-% ============================================================
-
+% 'mean' and 'std' functions useful.
+     
 end
